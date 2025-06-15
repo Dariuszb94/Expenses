@@ -1,7 +1,12 @@
 import './App.css';
+import ExpenseTracker from './ExpenseTracker';
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <ExpenseTracker />
+    </>
+  );
 }
 
 export default App;
