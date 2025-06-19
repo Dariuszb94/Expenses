@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Grid } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -11,12 +11,14 @@ import AddExpense from './components/AddExpense';
 const categories = ['Rent', 'Groceries', 'Utilities', 'Transport'];
 
 function App() {
-  const [expenses, setExpenses] = useState([
-    { category: 'Rent', amount: 800 },
-    { category: 'Groceries', amount: 300 },
-    { category: 'Utilities', amount: 150 },
-    { category: 'Transport', amount: 200 },
-  ]);
+  const [expenses, setExpenses] = useState(() => {
+    const stored = localStorage.getItem('expenses');
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }, [expenses]);
 
   const [newExpense, setNewExpense] = useState({
     category: '',
@@ -25,7 +27,10 @@ function App() {
     note: '',
   });
 
-  const total = expenses.reduce((sum, exp) => sum + Number(exp.amount), 0);
+  const total = expenses.reduce(
+    (sum: number, exp: { amount: number }) => sum + Number(exp.amount),
+    0
+  );
 
   const addExpense = () => {
     if (!newExpense.category || !newExpense.amount) return;
