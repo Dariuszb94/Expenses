@@ -122,9 +122,6 @@ export default function ExpenseTracker() {
                   onChange={(date) =>
                     setNewExpense({ ...newExpense, date: date || new Date() })
                   }
-                  renderInput={(params) => (
-                    <TextField {...params} fullWidth margin='normal' />
-                  )}
                 />
                 <Button
                   variant='contained'
