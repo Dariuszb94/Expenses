@@ -30,7 +30,7 @@ export default function ExpenseTracker() {
 
   const [newExpense, setNewExpense] = useState({
     category: '',
-    amount: '',
+    amount: 0,
     date: new Date(),
     note: '',
   });
