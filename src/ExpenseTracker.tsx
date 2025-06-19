@@ -40,7 +40,7 @@ export default function ExpenseTracker() {
   const addExpense = () => {
     if (!newExpense.category || !newExpense.amount) return;
     setExpenses([...expenses, newExpense]);
-    setNewExpense({ category: '', amount: '', date: new Date(), note: '' });
+    setNewExpense({ category: '', amount: 0, date: new Date(), note: '' });
   };
 
   return (
@@ -55,11 +55,10 @@ export default function ExpenseTracker() {
           <Typography variant='h4' fontWeight='bold'>
             Household Expenses
           </Typography>
-          <Button variant='outlined'>Settings</Button>
         </Grid>
 
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+          <Grid>
             <Card>
               <CardContent>
                 <Typography variant='h6'>Total Spent</Typography>
@@ -73,7 +72,7 @@ export default function ExpenseTracker() {
             </Card>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid>
             <Card>
               <CardContent>
                 <Typography variant='h6' mb={2}>
@@ -102,7 +101,10 @@ export default function ExpenseTracker() {
                   label='Amount'
                   value={newExpense.amount}
                   onChange={(e) =>
-                    setNewExpense({ ...newExpense, amount: e.target.value })
+                    setNewExpense({
+                      ...newExpense,
+                      amount: Number(e.target.value),
+                    })
                   }
                 />
                 <TextField
