@@ -31,6 +31,7 @@ const AddExpense: React.FC<AddExpenseProps> = ({
   setNewExpense,
   addExpense,
 }) => {
+  const isDisabled = newExpense.category === '' || !newExpense.amount;
   return (
     <Grid>
       <Card>
@@ -88,6 +89,7 @@ const AddExpense: React.FC<AddExpenseProps> = ({
             fullWidth
             sx={{ mt: 2 }}
             onClick={addExpense}
+            disabled={isDisabled}
           >
             + Add Expense
           </Button>
