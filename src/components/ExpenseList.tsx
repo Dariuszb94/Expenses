@@ -7,17 +7,7 @@ import {
   ListItem,
   ListItemText,
 } from '@mui/material';
-
-interface Expense {
-  category: string;
-  amount: number;
-  date?: Date;
-  note?: string;
-}
-
-interface ExpenseListProps {
-  expenses: Expense[];
-}
+import type { ExpenseListProps } from '../types';
 
 const ExpenseList: React.FC<ExpenseListProps> = ({ expenses }) => (
   <Card sx={{ mt: 4 }}>

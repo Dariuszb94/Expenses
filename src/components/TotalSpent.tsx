@@ -1,9 +1,6 @@
 import React from 'react';
 import { Grid, Card, CardContent, Typography } from '@mui/material';
-
-interface TotalSpentProps {
-  total: number;
-}
+import type { TotalSpentProps } from '../types';
 
 const TotalSpent: React.FC<TotalSpentProps> = ({ total }) => (
   <Grid>

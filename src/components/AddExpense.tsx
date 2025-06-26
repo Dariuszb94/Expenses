@@ -12,18 +12,7 @@ import {
   Grid,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
-
-interface AddExpenseProps {
-  categories: string[];
-  newExpense: {
-    category: string;
-    amount: number;
-    date: Date;
-    note: string;
-  };
-  setNewExpense: (expense: any) => void;
-  addExpense: () => void;
-}
+import type { AddExpenseProps } from '../types';
 
 const AddExpense: React.FC<AddExpenseProps> = ({
   categories,
