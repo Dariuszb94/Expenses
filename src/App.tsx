@@ -28,7 +28,14 @@ function App() {
   });
 
   const total = expenses.reduce(
-    (sum: number, exp: { amount: number }) => sum + Number(exp.amount),
+    (sum: number, exp: { amount: number; date: string | Date }) => {
+      const expDate = new Date(exp.date);
+      const now = new Date();
+      const isCurrentMonth =
+        expDate.getFullYear() === now.getFullYear() &&
+        expDate.getMonth() === now.getMonth();
+      return isCurrentMonth ? sum + Number(exp.amount) : sum;
+    },
     0
   );
 
