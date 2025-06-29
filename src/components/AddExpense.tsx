@@ -69,6 +69,7 @@ const AddExpense: React.FC<AddExpenseProps> = ({
           <DatePicker
             label='Date'
             value={newExpense.date}
+            format='dd-MM-yyyy'
             onChange={(date) =>
               setNewExpense({ ...newExpense, date: date || new Date() })
             }
