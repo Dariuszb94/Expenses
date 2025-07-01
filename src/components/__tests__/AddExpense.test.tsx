@@ -20,6 +20,8 @@ describe('AddExpense', () => {
     expect(screen.getByLabelText(/Category/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Amount/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Note/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Add Expense/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /Add Expense/i })
+    ).toBeInTheDocument();
   });
 });
