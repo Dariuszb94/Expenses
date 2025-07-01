@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import AddExpense from '../AddExpense';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 describe('AddExpense', () => {
   const categories = ['Rent', 'Groceries'];
@@ -10,12 +12,14 @@ describe('AddExpense', () => {
 
   it('renders form fields and button', () => {
     render(
-      <AddExpense
-        categories={categories}
-        newExpense={newExpense}
-        setNewExpense={setNewExpense}
-        addExpense={addExpense}
-      />
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <AddExpense
+          categories={categories}
+          newExpense={newExpense}
+          setNewExpense={setNewExpense}
+          addExpense={addExpense}
+        />
+      </LocalizationProvider>
     );
     expect(screen.getByLabelText(/Category/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Amount/i)).toBeInTheDocument();

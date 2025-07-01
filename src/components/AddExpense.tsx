@@ -29,8 +29,9 @@ const AddExpense: React.FC<AddExpenseProps> = ({
             Add Expense
           </Typography>
           <FormControl fullWidth margin='normal'>
-            <InputLabel>Category</InputLabel>
+            <InputLabel id='category-label'>Category</InputLabel>
             <Select
+              labelId='category-label'
               value={newExpense.category}
               onChange={(e) =>
                 setNewExpense({ ...newExpense, category: e.target.value })

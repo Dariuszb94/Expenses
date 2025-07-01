@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import ExpenseList from '../ExpenseList';
 
 describe('ExpenseList', () => {
   it('renders a list of expenses', () => {
