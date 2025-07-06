@@ -10,8 +10,10 @@ import {
   TextField,
   Button,
   Grid,
+  Box,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import type { AddExpenseProps } from '../types';
 
 const AddExpense: React.FC<AddExpenseProps> = ({
@@ -23,12 +25,15 @@ const AddExpense: React.FC<AddExpenseProps> = ({
   const isDisabled = newExpense.category === '' || !newExpense.amount;
   return (
     <Grid>
-      <Card>
+      <Card sx={{ minWidth: 320, boxShadow: 4 }}>
         <CardContent>
-          <Typography variant='h6' mb={2}>
-            Add Expense
-          </Typography>
-          <FormControl fullWidth margin='normal'>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+            <AddCircleIcon color='primary' />
+            <Typography variant='h6' fontWeight='bold'>
+              Add Expense
+            </Typography>
+          </Box>
+          <FormControl fullWidth margin='normal' variant='outlined'>
             <InputLabel id='category-label'>Category</InputLabel>
             <Select
               labelId='category-label'
@@ -50,6 +55,7 @@ const AddExpense: React.FC<AddExpenseProps> = ({
             margin='normal'
             type='number'
             label='Amount'
+            variant='outlined'
             value={newExpense.amount}
             onChange={(e) =>
               setNewExpense({
@@ -62,6 +68,7 @@ const AddExpense: React.FC<AddExpenseProps> = ({
             fullWidth
             margin='normal'
             label='Note'
+            variant='outlined'
             value={newExpense.note}
             onChange={(e) =>
               setNewExpense({ ...newExpense, note: e.target.value })
@@ -78,11 +85,12 @@ const AddExpense: React.FC<AddExpenseProps> = ({
           <Button
             variant='contained'
             fullWidth
-            sx={{ mt: 2 }}
+            sx={{ mt: 2, py: 1.2, fontWeight: 'bold', fontSize: 16 }}
             onClick={addExpense}
             disabled={isDisabled}
+            startIcon={<AddCircleIcon />}
           >
-            + Add Expense
+            Add Expense
           </Button>
         </CardContent>
       </Card>
