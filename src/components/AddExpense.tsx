@@ -56,13 +56,16 @@ const AddExpense: React.FC<AddExpenseProps> = ({
             type='number'
             label='Amount'
             variant='outlined'
-            value={newExpense.amount}
-            onChange={(e) =>
+            value={newExpense.amount === 0 ? '' : newExpense.amount}
+            onChange={(e) => {
+              // Remove all leading zeros except for '0'
+              const value = e.target.value.replace(/^0+(?!$)/, '');
               setNewExpense({
                 ...newExpense,
-                amount: Number(e.target.value),
-              })
-            }
+                amount: value === '' ? 0 : Number(value),
+              });
+            }}
+            inputProps={{ min: 0 }}
           />
           <TextField
             fullWidth
