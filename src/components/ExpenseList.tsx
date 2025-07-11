@@ -14,7 +14,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import type { ExpenseListProps } from '../types';
 
 const ExpenseList: React.FC<ExpenseListProps> = ({ expenses }) => (
-  <Card sx={{ mt: 4, minWidth: 320, boxShadow: 4 }}>
+  <Card sx={{ mt: 4, boxShadow: 4 }}>
     <CardContent>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
         <CategoryIcon color='primary' />

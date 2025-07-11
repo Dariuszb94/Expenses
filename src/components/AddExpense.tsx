@@ -25,7 +25,7 @@ const AddExpense: React.FC<AddExpenseProps> = ({
   const isDisabled = newExpense.category === '' || !newExpense.amount;
   return (
     <Grid>
-      <Card sx={{ minWidth: 320, boxShadow: 4 }}>
+      <Card sx={{ boxShadow: 4 }}>
         <CardContent>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
             <AddCircleIcon color='primary' />
