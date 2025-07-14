@@ -52,8 +52,8 @@ function App() {
   );
 
   const addExpense = () => {
-    if (!newExpense.category || !newExpense.amount) return;
-    setExpenses([...expenses, newExpense]);
+    if (!newExpense.category || newExpense.amount <= 0) return;
+    setExpenses([...expenses, { ...newExpense, id: Date.now() }]);
     setNewExpense({ category: '', amount: 0, date: new Date(), note: '' });
   };
   return (
