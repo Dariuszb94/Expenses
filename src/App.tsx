@@ -5,7 +5,6 @@ import {
   Grid,
   Dialog,
   DialogContent,
-  Fab,
   Tooltip,
   Zoom,
 } from '@mui/material';
@@ -17,6 +16,8 @@ import TotalSpent from './components/TotalSpent';
 import AddExpense from './components/AddExpense';
 import ExpensesChart from './components/ExpensesChart';
 import BarChartIcon from '@mui/icons-material/BarChart';
+
+import StyledFab from './components/styled/StyledFab';
 
 const categories = ['Rent', 'Groceries', 'Utilities', 'Transport'];
 
@@ -66,27 +67,13 @@ function App() {
             arrow
             TransitionComponent={Zoom}
           >
-            <Fab
+            <StyledFab
               color='primary'
               aria-label='show chart'
-              sx={{
-                position: 'fixed',
-                bottom: 40,
-                right: 40,
-                zIndex: 1200,
-                boxShadow: 6,
-                width: 88,
-                height: 88,
-                border: '4px solid #1976d2',
-                background: 'linear-gradient(90deg, #1976d2 0%, #42a5f5 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
               onClick={() => setChartOpen(true)}
             >
               <BarChartIcon sx={{ fontSize: 48, color: '#fff' }} />
-            </Fab>
+            </StyledFab>
           </Tooltip>
           <Dialog
             open={chartOpen}
