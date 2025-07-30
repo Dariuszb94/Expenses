@@ -10,11 +10,11 @@ import {
   TextField,
   Button,
   Grid,
-  Box,
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import type { AddExpenseProps } from '../types';
+import StyledAddExpenseHeader from './styled/StyledAddExpenseHeader';
 
 const AddExpense: React.FC<AddExpenseProps> = ({
   categories,
@@ -27,12 +27,12 @@ const AddExpense: React.FC<AddExpenseProps> = ({
     <Grid>
       <Card sx={{ boxShadow: 4 }}>
         <CardContent>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+          <StyledAddExpenseHeader>
             <AddCircleIcon color='primary' />
             <Typography variant='h6' fontWeight='bold'>
               Add Expense
             </Typography>
-          </Box>
+          </StyledAddExpenseHeader>
           <FormControl fullWidth margin='normal' variant='outlined'>
             <InputLabel id='category-label'>Category</InputLabel>
             <Select
